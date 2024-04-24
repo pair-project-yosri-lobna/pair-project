@@ -43,6 +43,11 @@ function generateId() {
 }
 
 var id = generateId()
+var n = $('#name').val()
+var c = $('#category').val()
+var p = $('#price').val()
+var q = $('#quantity').val()
+var i = $('#pic').val()
 
 var Product = function (name, category, price, quantity, images) {
     return {
@@ -53,7 +58,24 @@ var Product = function (name, category, price, quantity, images) {
         quantity: quantity,
         images: images
     }
-}
+}/**
+var product1= Product("iPhone 13","Electronics",1099.99,2,[""])
+var product2= Product("Leather Jacket","Clothing",299.99,1,[""])
+var product3= Product("Bluetooth Speaker","Electronics",79.99,3,[""])
+var product4= Product("Running Shoes","Shoes",129.99,1,[""])
+
+var Product = function () {
+    return {
+        id: id(),
+        name: $('#name').val(),
+        category: $('#category').val(),
+        price: $('#price').val(),
+        quantity: $('#quantity').val(),
+        images: $('#pic').val()
+
+    }
+}*/
+
 
 function makeProduct() {
     var obj = {}
@@ -65,4 +87,140 @@ function makeProduct() {
     obj.display = display
     obj.displayAll = displayAll
     return obj
+}
+
+
+var addProduct = function (n, c, p, q, i) {
+    /**  n = $('#name').val()
+      c = $('#category').val()
+      p = $('#price').val()
+      q = $('#quantity').val()
+      i = $('#pic').val()*/
+
+    var newProduct = Product(n, c, p, q, i)
+    this.items.push(newProduct)
+    return "Product add with sucsess"
+
+}
+
+
+$('#submit').on('click', function () {
+
+    productShop.addProduct(n, c, p, q)
+
+})
+
+$("#list tr").click(function () {
+    $("td").remove();
+});
+
+$(".fa-trash").click(function () {
+    $("td").remove();
+});
+
+
+var removeProduct = function (id) {
+
+    return filter(this.items, function (element) {
+        return element.id !== id
+    })
+}
+
+var removeProductById = function (id) {
+
+    return filter(this.items, function (element, i) {
+        element.id === id
+        this.items.splice(i, 1)
+        return this.items
+    })
+}
+
+var updateProduct = function (id, newVal) {
+
+    var arr = this.items
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+            arr[i].price = newVal
+        }
+    }
+    return arr
+}
+
+var display = function (id) {
+
+    for (var i = 0; i < this.items.length; i++) {
+        if (this.items[i].id === id) {
+            return this.items[i].name + " " + " " + this.items[i].category + " " +
+                this.items[i].price + " " + this.items[i].quantity + " " + this.items[i].images
+        }
+
+    }
+}
+
+var displayAll = function () {
+
+    return map(this.items, function (element) {
+        return element
+    })
+}
+
+
+var productShop = makeProduct()
+
+productShop.addProduct("Coffe Espresso", "White", 3.25, 22, ["images/1.jpg"])
+productShop.addProduct("Coffe Noir", "Dark", 4.99, 18, ["images/2.jpg"])
+productShop.addProduct("Nescafe", "Dark", 7.99, 33, ["images/images(1).jpg"])
+productShop.addProduct("Coffe ", "I ced Coffe", 5, 11, ["images/360.jpg"])
+productShop.addProduct("Capucino", "Darks", 12, 21, ["images/5.jpg"])
+productShop.addProduct("Americano", "Darks Coffe", 9.99, 12, ["images/d.jpg"])
+console.log(productShop.items)
+console.log(productShop.items[0])
+console.log(productShop.items[0].images[0])
+productShop.removeProduct(0)
+productShop.removeProductById(1)
+productShop.updateProduct(0, 2.99)
+productShop.display(1)
+productShop.displayAll()
+
+
+//jquery
+$('h1').append('Coffee Shop List')
+$('th#idT').append("Product Id")
+$('th#nameT').append("Product Name")
+$('th#categoryT').append("Category")
+$('th#priceT').append("Price")
+$('th#quantityT').append("Quantity")
+$('th#imagesT').append("Images")
+$('th#remove').append("Remove")
+
+$('#item1').attr('src',"images/coffe.jpg")
+$('#item2').attr('src',"images/5.jpg")
+$('#item3').attr('src',"images/d.jpg")
+$('#item4').attr('src',"images/360.jpg")
+
+var pict = ["images/1.jpg", "images/2.jpg", "images/images.jpg","images/136051.jpg","images/3.jpg"]
+var countt = 0
+$('#item1').on({
+    'click': function () {
+        countt = (countt + 1) % pict.length
+        $('#item1').attr('src', pict[countt])
+
+    }
+});
+
+var items = productShop.items
+var pictures = productShop.items.images
+var count = -1
+var i = 0
+
+while (count < items.length) {
+
+    count = count + 1
+
+    $("#list").append("<tr><td>" + items[count].id +
+        "</td><td>" + items[count].name + "</td><td>" + items[count].category + "</td><td>" +
+        items[count].price + " " + "Euro" +
+        "</td><td>" + items[count].quantity + "</td><td><img/></td><td><i></i></td></tr>")
+    $("#list img").attr('src', items[count].images[i])
+    $("i").addClass("fas fa-trash")
 }
