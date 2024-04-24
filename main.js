@@ -167,12 +167,12 @@ var displayAll = function () {
 
 var productShop = makeProduct()
 
-productShop.addProduct("Coffe Espresso", "White", 3.25, 22, ["images/1.jpg"])
-productShop.addProduct("Coffe Noir", "Dark", 4.99, 18, ["images/2.jpg"])
-productShop.addProduct("Nescafe", "Dark", 7.99, 33, ["images/images(1).jpg"])
-productShop.addProduct("Coffe ", "I ced Coffe", 5, 11, ["images/360.jpg"])
-productShop.addProduct("Capucino", "Darks", 12, 21, ["images/5.jpg"])
-productShop.addProduct("Americano", "Darks Coffe", 9.99, 12, ["images/d.jpg"])
+productShop.addProduct("Coffe Espresso", "White", 3.25, 22, ["../images/1.jpg"])
+productShop.addProduct("Coffe Noir", "Dark", 4.99, 18, ["../images/2.jpg"])
+productShop.addProduct("Nescafe", "Dark", 7.99, 33, ["../images/images(1).jpg"])
+productShop.addProduct("Coffe ", "I ced Coffe", 5, 11, ["../images/360.jpg"])
+productShop.addProduct("Capucino", "Darks", 12, 21, ["../images/5.jpg"])
+productShop.addProduct("Americano", "Darks Coffe", 9.99, 12, ["../images/d.jpg"])
 console.log(productShop.items)
 console.log(productShop.items[0])
 console.log(productShop.items[0].images[0])
@@ -193,12 +193,12 @@ $('th#quantityT').append("Quantity")
 $('th#imagesT').append("Images")
 $('th#remove').append("Remove")
 
-$('#item1').attr('src',"images/coffe.jpg")
-$('#item2').attr('src',"images/5.jpg")
-$('#item3').attr('src',"images/d.jpg")
-$('#item4').attr('src',"images/360.jpg")
+$('#item1').attr('src',"../images/coffe.jpg")
+$('#item2').attr('src',"../images/5.jpg")
+$('#item3').attr('src',"../images/d.jpg")
+$('#item4').attr('src',"../images/360.jpg")
 
-var pict = ["images/1.jpg", "images/2.jpg", "images/images.jpg","images/136051.jpg","images/3.jpg"]
+var pict = ["../images/1.jpg", "../images/2.jpg", "../images/images.jpg","../images/136051.jpg","../images/3.jpg"]
 var countt = 0
 $('#item1').on({
     'click': function () {
