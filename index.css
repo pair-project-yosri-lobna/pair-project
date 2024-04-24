@@ -3,4 +3,9 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;}
-    
+
+
+    #img1{
+        width: 20%;
+        height: 100px;
+    }
