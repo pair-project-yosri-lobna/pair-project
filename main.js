@@ -55,3 +55,14 @@ var Product = function (name, category, price, quantity, images) {
     }
 }
 
+function makeProduct() {
+    var obj = {}
+    obj.items = []
+    obj.addProduct = addProduct
+    obj.removeProduct = removeProduct
+    obj.removeProductById = removeProduct
+    obj.updateProduct = updateProduct
+    obj.display = display
+    obj.displayAll = displayAll
+    return obj
+}
