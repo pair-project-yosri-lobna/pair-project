@@ -49,7 +49,7 @@ var p = $('#price').val()
 var q = $('#quantity').val()
 var i = $('#pic').val()
 
-var Product = function (name, category, price, quantity, images) {
+/**var Product = function (name, category, price, quantity, images) {
     return {
         id: id(),
         name: name,
@@ -58,11 +58,11 @@ var Product = function (name, category, price, quantity, images) {
         quantity: quantity,
         images: images
     }
-}/**
+}
 var product1= Product("iPhone 13","Electronics",1099.99,2,[""])
 var product2= Product("Leather Jacket","Clothing",299.99,1,[""])
 var product3= Product("Bluetooth Speaker","Electronics",79.99,3,[""])
-var product4= Product("Running Shoes","Shoes",129.99,1,[""])
+var product4= Product("Running Shoes","Shoes",129.99,1,[""])*/
 
 var Product = function () {
     return {
@@ -74,7 +74,7 @@ var Product = function () {
         images: $('#pic').val()
 
     }
-}*/
+}
 
 
 function makeProduct() {
@@ -91,11 +91,11 @@ function makeProduct() {
 
 
 var addProduct = function (n, c, p, q, i) {
-    /**  n = $('#name').val()
+      n = $('#name').val()
       c = $('#category').val()
       p = $('#price').val()
       q = $('#quantity').val()
-      i = $('#pic').val()*/
+      i = $('#pic').val()
 
     var newProduct = Product(n, c, p, q, i)
     this.items.push(newProduct)
