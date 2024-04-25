@@ -151,9 +151,6 @@ $('.deleted').click(function(){
 })
 
 
-
-
-
 //function buy that delet the var item from coffeItem array using splice and return allert that contene messege to confirm the delet
 //and we invoce show with nwe array
  function deleteItem(e) {
