@@ -3,7 +3,7 @@ function each(array, func) {
         func(array[i], i);
     }
 }
- 
+
 function map(array, f) {
     var acc = [];
     each(array, function (element, i) {
@@ -11,7 +11,7 @@ function map(array, f) {
     });
     return acc;
 }
- 
+
 function filter(array, predicate) {
     var acc = [];
     each(array, function (element, index) {
@@ -21,7 +21,7 @@ function filter(array, predicate) {
     });
     return acc;
 }
- 
+
 function reduce(array, f, acc) {
     if (acc === undefined) {
         acc = array[0];
@@ -32,7 +32,7 @@ function reduce(array, f, acc) {
     });
     return acc;
 }
- 
+
 function generateId() {
     var counter = 0;
     return function count() {
@@ -59,10 +59,10 @@ var Product = function (name, category, price, quantity, images) {
         images: images
     }
 }
-var product1= Product("iPhone 13","Electronics",1099.99,2,[""])
-var product2= Product("Leather Jacket","Clothing",299.99,1,[""])
-var product3= Product("Bluetooth Speaker","Electronics",79.99,3,[""])
-var product4= Product("Running Shoes","Shoes",129.99,1,[""])
+var product1 = Product("iPhone 13", "Electronics", 1099.99, 2, [""])
+var product2 = Product("Leather Jacket", "Clothing", 299.99, 1, [""])
+var product3 = Product("Bluetooth Speaker", "Electronics", 79.99, 3, [""])
+var product4 = Product("Running Shoes", "Shoes", 129.99, 1, [""])
 
 var Product = function () {
     return {
@@ -91,22 +91,26 @@ function makeProduct() {
 
 
 var addProduct = function (n, c, p, q, i) {
-      n = $('#name').val()
-      c = $('#category').val()
-      p = $('#price').val()
-      q = $('#quantity').val()
-      i = $('#pic').val()
+    n = $('#name').val()
+    c = $('#category').val()
+    p = $('#price').val()
+    q = $('#quantity').val()
+    i = $('#pic').val()
 
     var newProduct = Product(n, c, p, q, i)
     this.items.push(newProduct)
+    // alert("Your Item Added with sucsess");
+
     return "Product add with sucsess"
-//done
+    //done
 }
 
 
 $('#submit').on('click', function () {
 
     productShop.addProduct(n, c, p, q)
+    productShop.displayAll()
+    return "Product add with sucsess" + this.items
 
 })
 
@@ -159,13 +163,13 @@ var display = function (id) {
 
 var displayAll = function () {
 
-    return map(this.items, function (element,i) {
+    return map(this.items, function (element, i) {
         $("#list").append("<tr><td>" + element.id +
-        "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
-        element.price + " " + "Euro" +
-        "</td><td>" + element.quantity + "</td><td><img/></td><td><i></i></td></tr>")
-    $("#list img").attr('src', element.images[i])
-    $("i").addClass("fas fa-trash")
+            "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
+            element.price + " " + "Euro" +
+            "</td><td>" + element.quantity + "</td><td><img/></td><td><i></i></td></tr>")
+        $("#list img").attr('src', element.images[i])
+        $("i").addClass("fas fa-trash")
     })
 }
 
@@ -198,12 +202,12 @@ $('th#quantityT').append("Quantity")
 $('th#imagesT').append("Images")
 $('th#remove').append("Remove")
 
-$('#item1').attr('src',"../images/coffe.jpg")
-$('#item2').attr('src',"../images/5.jpg")
-$('#item3').attr('src',"../images/d.jpg")
-$('#item4').attr('src',"../images/360.jpg")
+$('#item1').attr('src', "../images/coffe.jpg")
+$('#item2').attr('src', "../images/5.jpg")
+$('#item3').attr('src', "../images/d.jpg")
+$('#item4').attr('src', "../images/360.jpg")
 
-var pict = ["../images/1.jpg", "../images/2.jpg", "../images/images.jpg","../images/136051.jpg","../images/3.jpg"]
+var pict = ["../images/1.jpg", "../images/2.jpg", "../images/images.jpg", "../images/136051.jpg", "../images/3.jpg"]
 var countt = 0
 $('#item1').on({
     'click': function () {
@@ -228,9 +232,9 @@ while (count < items.length) {
     $("#list img").attr('src', items[count].images[i])
     $("i").addClass("fas fa-trash")
 }
-//display all loop throguh this.items appaend array[i] 
-//obj il oop 
+//display all loop throguh this.items appaend array[i]
+//obj il oop
 //displayAll()
-//display all 
+//display all
 //add (submit)
 //  display all ()
