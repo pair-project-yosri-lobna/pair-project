@@ -62,10 +62,10 @@ function Product(name, category, price, quantity, images) {
     };
 }
  //vars off each item
-var cappuccino = Product('Cappuccino', 'Espresso', '4.50', 100, ['./images/espresso.png', './images/cammill.png']);
-// var latte = Product('Latte', 'Espresso', '5.00', 80, ['./images/cappuccino.png', './images/frappo.png']);
-var americano = Product('Americano', 'Espresso', '3.50', 120, ['./images/cammill.png', './images/omlett.png']);
-var mocha = Product('Mocha', 'Espresso', '5.50', 70, ['./images/EggTart.png', './images/crep.png']);
+var cappuccino = Product('Cappuccino', 'Espresso', '4.50', 100, ['../images/espresso.png', '../images/cammill.png']);
+// var latte = Product('Latte', 'Espresso', '5.00', 80, ['../images/cappuccino.png', '../images/frappo.png']);
+var americano = Product('Americano', 'Espresso', '3.50', 120, ['../images/cammill.png', '../images/omlett.png']);
+var mocha = Product('Mocha', 'Espresso', '5.50', 70, ['../images/EggTart.png', '../images/crep.png']);
 var coffeeItems = [cappuccino,  americano, mocha];
 //this function that change image with click i use oncklick to change the image the parameter are  the element represent html element that is imge to function click event 
 //and itemIndex  that is number to help on click event
@@ -73,7 +73,7 @@ function changeImage(element, itemIndex) {
     var counter = 1;
     element.on('click', function () {
         console.log(element[0].images);
-        var images = element[itemIndex].images;
+        var images = coffeeItems[itemIndex].images;
         var imgCount = images.length;
         element.attr('src', images[counter]);
         counter++;
@@ -127,7 +127,7 @@ function show(coffeeItems) {
                     <h2>${element.name}</h2>
                     <h2>${element.quantity}</h2>
                     <h2>${element.category}</h2>
-                    <button>Click me</button>
+                    <button class="delet-btn" onclick='deleteItem('${element.name}',${i})>delet</button>
                 </div>
             </div>`
         );
