@@ -3,7 +3,7 @@ function each(array, func) {
         func(array[i], i);
     }
 }
-
+ 
 function map(array, f) {
     var acc = [];
     each(array, function (element, i) {
@@ -11,7 +11,7 @@ function map(array, f) {
     });
     return acc;
 }
-
+ 
 function filter(array, predicate) {
     var acc = [];
     each(array, function (element, index) {
@@ -21,7 +21,7 @@ function filter(array, predicate) {
     });
     return acc;
 }
-
+ 
 function reduce(array, f, acc) {
     if (acc === undefined) {
         acc = array[0];
@@ -32,14 +32,14 @@ function reduce(array, f, acc) {
     });
     return acc;
 }
-
+ 
 function generateId() {
-    var counter = 0
+    var counter = 0;
     return function count() {
-        var t = counter
-        counter = counter + 1
-        return t
-    }
+        var t = counter;
+        counter = counter + 1;
+        return t;
+    };
 }
 
 var id = generateId()
@@ -49,7 +49,7 @@ var p = $('#price').val()
 var q = $('#quantity').val()
 var i = $('#pic').val()
 
-/**var Product = function (name, category, price, quantity, images) {
+var Product = function (name, category, price, quantity, images) {
     return {
         id: id(),
         name: name,
@@ -62,7 +62,7 @@ var i = $('#pic').val()
 var product1= Product("iPhone 13","Electronics",1099.99,2,[""])
 var product2= Product("Leather Jacket","Clothing",299.99,1,[""])
 var product3= Product("Bluetooth Speaker","Electronics",79.99,3,[""])
-var product4= Product("Running Shoes","Shoes",129.99,1,[""])*/
+var product4= Product("Running Shoes","Shoes",129.99,1,[""])
 
 var Product = function () {
     return {
@@ -159,8 +159,13 @@ var display = function (id) {
 
 var displayAll = function () {
 
-    return map(this.items, function (element) {
-        return element
+    return map(this.items, function (element,i) {
+        $("#list").append("<tr><td>" + element.id +
+        "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
+        element.price + " " + "Euro" +
+        "</td><td>" + element.quantity + "</td><td><img/></td><td><i></i></td></tr>")
+    $("#list img").attr('src', element.images[i])
+    $("i").addClass("fas fa-trash")
     })
 }
 
@@ -208,15 +213,14 @@ $('#item1').on({
     }
 });
 
+
 var items = productShop.items
 var pictures = productShop.items.images
 var count = -1
 var i = 0
 
 while (count < items.length) {
-
     count = count + 1
-
     $("#list").append("<tr><td>" + items[count].id +
         "</td><td>" + items[count].name + "</td><td>" + items[count].category + "</td><td>" +
         items[count].price + " " + "Euro" +
@@ -224,3 +228,9 @@ while (count < items.length) {
     $("#list img").attr('src', items[count].images[i])
     $("i").addClass("fas fa-trash")
 }
+//display all loop throguh this.items appaend array[i] 
+//obj il oop 
+//displayAll()
+//display all 
+//add (submit)
+//  display all ()
