@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    // Your JavaScript code here
+
 function each(array, func) {
     for (var i = 0; i < array.length; i++) {
         func(array[i], i);
@@ -33,16 +36,16 @@ function reduce(array, f, acc) {
     return acc;
 }
  
-function generateId() {
+var id = (function() {
     var counter = 0;
-    return function count() {
+    return function() {
         var t = counter;
         counter = counter + 1;
         return t;
     };
-}
+})();
  
-var id = generateId();
+
  //factory function that return array to hold data of item
 function Product(name, category, price, quantity, images) {
     var arr = [];
@@ -59,11 +62,11 @@ function Product(name, category, price, quantity, images) {
     };
 }
  //vars off each item
-var cappuccino = Product('Cappuccino', 'Espresso', '4.50', 100, ['./images/espresso.png', '.images/cammill.png']);
-var latte = Product('Latte', 'Espresso', '5.00', 80, ['./images/cappuccino.png', './images/frappo.png']);
+var cappuccino = Product('Cappuccino', 'Espresso', '4.50', 100, ['./images/espresso.png', './images/cammill.png']);
+// var latte = Product('Latte', 'Espresso', '5.00', 80, ['./images/cappuccino.png', './images/frappo.png']);
 var americano = Product('Americano', 'Espresso', '3.50', 120, ['./images/cammill.png', './images/omlett.png']);
 var mocha = Product('Mocha', 'Espresso', '5.50', 70, ['./images/EggTart.png', './images/crep.png']);
-var coffeeItems = [cappuccino, latte, americano, mocha];
+var coffeeItems = [cappuccino,  americano, mocha];
 //this function that change image with click i use oncklick to change the image the parameter are  the element represent html element that is imge to function click event 
 //and itemIndex  that is number to help on click event
 function changeImage(element, itemIndex) {
@@ -99,12 +102,12 @@ function filterItems(){
                         <h2>${element.name}</h2>
                         <h2>${element.price}</h2>
                         <h2>${element.category}</h2>
-                        <button class="buy-btn" onclick='deleteItem('${element.name}',${i})>buy</button>
+                        <button class="delet-btn" onclick='deleteItem('${element.name}',${i})>delet</button>
                     </div>
                 </div>`
             );
 
-            changeImage($(`#${element.name}`), i);
+            changeImage($(`#${element.name}`),i);
         });
 
     }
@@ -119,30 +122,48 @@ function show(coffeeItems) {
      each(coffeeItems, function (element, i) {
         $('.section-center').append(
             `  <div class="item">
-                <div><img id="${element.name}" src="${element.images[0]}"></div>
+                <div><img id=${element.name} src=${element.images[0]} /></div>
                 <div>
                     <h2>${element.name}</h2>
                     <h2>${element.quantity}</h2>
                     <h2>${element.category}</h2>
-                    <button class="delet" onclick=deleteItem(${element.name},${element.id})>buy</button>
+                    <button>Click me</button>
                 </div>
             </div>`
         );
-      
+     
         changeImage($(`#${element.name}`), i);
     });
-    
-          
-      
+
 }
+
+
+
+// const button = document.querySelector("deleted");
+// button.addEventListener("click", (event) => {
+//     console.log('gggggggggg');
+//   });
+//   console.log(button)
+  
+
+$('.deleted').click(function(){
+    console.log('test');
+})
+
+
+
+
+
 //function buy that delet the var item from coffeItem array using splice and return allert that contene messege to confirm the delet
 //and we invoce show with nwe array
- function deleteItem(name,i) {
+ function deleteItem(e) {
     for (var i = 0; i < coffeeItems.length; i++) {
-        if (coffeeItems[i].id === item.id) {
-            coffeeItems.splice(i, 1);
-            alert("Are you sure you want to delete?");
+        if (coffeeItems[i].id ===e ) {
+            console.log(coffeeItems[i].id)
+            coffeeItems.splice(i,1);
             show(coffeeItems); 
-            break; // Exit loop once the item is deleted
-        }}}
-show(coffeeItems)
+        }
+    }
+}
+show(coffeeItems);
+});
