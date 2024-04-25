@@ -34,12 +34,12 @@ function reduce(array, f, acc) {
 }
 
 function generateId() {
-    var counter = 0;
+    var counter = 0
     return function count() {
-        var t = counter;
-        counter = counter + 1;
-        return t;
-    };
+        var t = counter
+        counter = counter + 1
+        return t
+    }
 }
 
 var id = generateId()
@@ -49,7 +49,7 @@ var p = $('#price').val()
 var q = $('#quantity').val()
 var i = $('#pic').val()
 
-/**var Product = function (name, category, price, quantity, images) {
+/*var Product = function (name, category, price, quantity, images) {
     return {
         id: id(),
         name: name,
@@ -100,7 +100,7 @@ var addProduct = function (n, c, p, q, i) {
     var newProduct = Product(n, c, p, q, i)
     this.items.push(newProduct)
     return "Product add with sucsess"
-    
+    //done
 }
 
 
@@ -161,15 +161,13 @@ var display = function (id) {
 
 var displayAll = function () {
 
-    return map(this.items, function (element, i) {
+    return map(this.items, function (element) {
         $("#list").append("<tr><td>" + element.id +
-            "</td><td>" + element.name + "</td><td>" +element.category + "</td><td>" +
+            "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
             element.price + " " + "Euro" +
             "</td><td>" + element.quantity + "</td><td><img></td><td><i></i></td></tr>")
         $("#list img").attr('src', element.images[i])
         $("i").addClass("fas fa-trash")
-       
-
     })
 }
 
@@ -177,17 +175,17 @@ var displayAll = function () {
 var productShop = makeProduct()
 
 productShop.addProduct("Coffe Espresso", "White", 3.25, 22, ["../images/1.jpg"])
-productShop.addProduct("Coffe Noir", "Dark", 4.99, 18, ["../images/2.jpg"])
+/*productShop.addProduct("Coffe Noir", "Dark", 4.99, 18, ["../images/2.jpg"])
 productShop.addProduct("Nescafe", "Dark", 7.99, 33, ["../images/images(1).jpg"])
 productShop.addProduct("Coffe ", "I ced Coffe", 5, 11, ["../images/360.jpg"])
 productShop.addProduct("Capucino", "Darks", 12, 21, ["../images/5.jpg"])
-productShop.addProduct("Americano", "Darks Coffe", 9.99, 12, ["../images/d.jpg"])
+productShop.addProduct("Americano", "Darks Coffe", 9.99, 12, ["../images/d.jpg"])*/
 console.log(productShop.items)
 console.log(productShop.items[0])
-console.log(productShop.items[0].images[0])
+//console.log(productShop.items[0].images[0])
 productShop.removeProduct(0)
 productShop.removeProductById(1)
-productShop.updateProduct(0, 2.99)
+//productShop.updateProduct(0, 2.99)
 productShop.display(1)
 productShop.displayAll()
 
@@ -217,24 +215,19 @@ $('#item1').on({
     }
 });
 
-
 var items = productShop.items
 var pictures = productShop.items.images
 var count = -1
 var i = 0
 
-while (count < items.length) {
+/**while (count < items.length) {
+
     count = count + 1
+
     $("#list").append("<tr><td>" + items[count].id +
         "</td><td>" + items[count].name + "</td><td>" + items[count].category + "</td><td>" +
         items[count].price + " " + "Euro" +
         "</td><td>" + items[count].quantity + "</td><td><img/></td><td><i></i></td></tr>")
     $("#list img").attr('src', items[count].images[i])
     $("i").addClass("fas fa-trash")
-}
-//display all loop throguh this.items appaend array[i]
-//obj il oop
-//displayAll()
-//display all
-//add (submit)
-//  display all ()
+}*/
