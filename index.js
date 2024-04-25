@@ -118,7 +118,7 @@ $("#list tr").click(function () {
 });
 
 $(".fa-trash").click(function () {
-    productShop.removeProductById(1)
+    //productShop.removeProductById(1)
     $("td").remove();
 });
 
@@ -174,7 +174,9 @@ var displayAll = function () {
         </td><td> ${element.name }</td><td> ${element.category} </td><td>
         ${element.price} Euro </td><td> ${element.quantity } </td><td><img></td><td><i></i></td></tr>`)
         $("#list img").attr('src',element.images)
+        $("#trash i").addClass("fas fa-trash")
         $("i").addClass("fas fa-trash")
+        $("#delete").attr('src',"../images/delete.jpg")
 
         /**$("#list").append("<tr><td>" + element.id +
              "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
