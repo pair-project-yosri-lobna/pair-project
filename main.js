@@ -100,7 +100,7 @@ var addProduct = function (n, c, p, q, i) {
     var newProduct = Product(n, c, p, q, i)
     this.items.push(newProduct)
     return "Product add with sucsess"
-
+//done
 }
 
 
