@@ -49,7 +49,7 @@ var p = $('#price').val()
 var q = $('#quantity').val()
 var i = $('#pic').val()
 
-/*var Product = function (name, category, price, quantity, images) {
+/**var ProductM = function (name, category, price, quantity, images) {
     return {
         id: id(),
         name: name,
@@ -59,6 +59,7 @@ var i = $('#pic').val()
         images: images
     }
 }
+
 var product1 = Product("Coffe", "Drinks", 1.99, 2, [""])
 var product2 = Product("Milk Choklet", "Drinks", 2.99, 1, [""])
 var product3 = Product("I ced Coffe", "Drinks", 9.99, 3, [""])
@@ -140,12 +141,16 @@ var removeProductById = function (id) {
     })
 }
 
-var updateProduct = function (id, newVal) {
+var updateProduct = function (id,name,category,price,quantity,images) {
 
     var arr = this.items
     for (var i = 0; i < arr.length; i++) {
         if (arr[i].id === id) {
-            arr[i].price = newVal
+            arr[i].name = name
+            arr[i].category = category
+            arr[i].price = price
+            arr[i].quantity= quantity
+            arr[i].images= images
         }
     }
     return arr
@@ -194,7 +199,7 @@ console.log(productShop.items[0])
 console.log(productShop.items[0].images[0])
 productShop.removeProduct(0)
 productShop.removeProductById(1)
-productShop.updateProduct(0, 2.99)
+productShop.updateProduct(0, "Coffe Espresso","White",2.99,3)
 productShop.display(1)
 productShop.displayAll()
 
@@ -229,7 +234,7 @@ var pictures = productShop.items.images
 var count = -1
 var i = 0
 
-/**while (count < items.length) {
+/*while (count < items.length) {
 
     count = count + 1
 
@@ -237,6 +242,7 @@ var i = 0
         "</td><td>" + items[count].name + "</td><td>" + items[count].category + "</td><td>" +
         items[count].price + " " + "Euro" +
         "</td><td>" + items[count].quantity + "</td><td><img/></td><td><i></i></td></tr>")
-    $("#list img").attr('src', items[count].images[i])
+    $("#list img").attr('src', items[count].images)
     $("i").addClass("fas fa-trash")
 }*/
+
