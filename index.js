@@ -169,7 +169,7 @@ var display = function (id) {
 
 var displayAll = function () {
 
-    return map(this.items, function (element,i) {
+    return map(this.items, function (element) {
         $("#list").append(`<tr><td> ${element.id }
         </td><td> ${element.name }</td><td> ${element.category} </td><td>
         ${element.price} Euro </td><td> ${element.quantity } </td><td><img></td><td><i></i></td></tr>`)
@@ -199,7 +199,7 @@ console.log(productShop.items[0])
 console.log(productShop.items[0].images[0])
 productShop.removeProduct(0)
 productShop.removeProductById(1)
-productShop.updateProduct(0, "Coffe Espresso","White",2.99,3)
+productShop.updateProduct(0, "Coffe Espresso","White",2.99,3,"../images/360.jpg")
 productShop.display(1)
 productShop.displayAll()
 
