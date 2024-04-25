@@ -53,3 +53,12 @@ a:link, a:visited {
   a:hover, a:active {
     background-color: red;
   }
+
+  .item{
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid #ccc;
+margin: 10px;
+flex-wrap: nowrap;
+}

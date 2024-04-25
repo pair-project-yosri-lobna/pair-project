@@ -101,7 +101,7 @@ var addProduct = function (n, c, p, q, i) {
     var newProduct = Product(n, c, p, q, i)
     this.items.push(newProduct)
     return "Product add with sucsess"
-   
+
 }
 
 
@@ -109,7 +109,7 @@ $('#submit').on('click', function () {
 
     productShop.addProduct(n, c, p, q)
     productShop.displayAll()
-    return "Product add with sucsess" + this.items
+    return this.items
 
 })
 
@@ -118,17 +118,17 @@ $("#list tr").click(function () {
 });
 
 $(".fa-trash").click(function () {
-    //productShop.removeProductById(1)
+    productShop.removeProductById(1)
     $("td").remove();
 });
 
 
 var removeProduct = function (id) {
 
-     filter(this.items, function (element) {
+    filter(this.items, function (element) {
         return element.id !== id
     })
-  
+
 
 }
 
@@ -141,7 +141,7 @@ var removeProductById = function (id) {
     })
 }
 
-var updateProduct = function (id,name,category,price,quantity,images) {
+var updateProduct = function (id, name, category, price, quantity, images) {
 
     var arr = this.items
     for (var i = 0; i < arr.length; i++) {
@@ -149,8 +149,8 @@ var updateProduct = function (id,name,category,price,quantity,images) {
             arr[i].name = name
             arr[i].category = category
             arr[i].price = price
-            arr[i].quantity= quantity
-            arr[i].images= images
+            arr[i].quantity = quantity
+            arr[i].images = images
         }
     }
     return arr
@@ -170,13 +170,13 @@ var display = function (id) {
 var displayAll = function () {
 
     return map(this.items, function (element) {
-        $("#list").append(`<tr><td> ${element.id }
-        </td><td> ${element.name }</td><td> ${element.category} </td><td>
-        ${element.price} Euro </td><td> ${element.quantity } </td><td><img></td><td><i></i></td></tr>`)
-        $("#list img").attr('src',element.images)
+        $("#list").append(`<tr><td> ${element.id}
+        </td><td> ${element.name}</td><td> ${element.category} </td><td>
+        ${element.price} Euro </td><td> ${element.quantity} </td><td><img></td><td><i></i></td></tr>`)
+        $("#list img").attr('src', element.images)
         $("#trash i").addClass("fas fa-trash")
         $("i").addClass("fas fa-trash")
-        $("#delete").attr('src',"../images/delete.jpg")
+        $("#delete").attr('src', "../images/delete.jpg")
 
         /**$("#list").append("<tr><td>" + element.id +
              "</td><td>" + element.name + "</td><td>" + element.category + "</td><td>" +
@@ -201,7 +201,7 @@ console.log(productShop.items[0])
 console.log(productShop.items[0].images[0])
 productShop.removeProduct(0)
 productShop.removeProductById(1)
-productShop.updateProduct(0, "Coffe Espresso","White",2.99,3,"../images/360.jpg")
+productShop.updateProduct(0, "Coffe Espresso", "White", 2.99, 3, "../images/360.jpg")
 productShop.display(1)
 productShop.displayAll()
 
