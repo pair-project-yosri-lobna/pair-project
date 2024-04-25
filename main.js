@@ -108,7 +108,7 @@ $('#submit').on('click', function () {
 
     productShop.addProduct(n, c, p, q)
     productShop.displayAll()
-    return "Product add with sucsess" + this.items
+    return  this.items
 
 })
 
