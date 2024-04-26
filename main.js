@@ -101,9 +101,9 @@ function show(coffeeItems) {
             `  <div class="item">
                 <div class='imag'><img id=${element.name} src=${element.images[0]} /></div>
                 <div>
-                    <h2>name:${element.name}</h2>
-                    <h2>proudct:${element.quantity} </h2>
-                    <h2>category:${element.category}</h2>
+                    <h2>Name: ${element.name} </h2>
+                    <h2>Proudct: ${element.quantity} items </h2>
+                    <h2>Category: ${element.category} </h2>
                     <button class="click" onclick=deletItem(${element.name},${i})>Delet</button>
                 </div>
             </div>`
@@ -128,9 +128,9 @@ function filterItems() {
                 `  <div class="item">
                         <div><img id="${element.name}" src="${element.images[0]}"></div>
                         <div>
-                        <h2>name:${element.name}</h2>
-                        <h2>proudct:${element.quantity} </h2>
-                        <h2>category:${element.category}</h2>
+                        <h2>Name: ${element.name} </h2>
+                        <h2>Product: ${element.quantity} items </h2>
+                        <h2>Category: ${element.category} </h2>
                             <button class="click-me" onclick=deletItem(${element.name},${i})>Delet</button>
                             </div>
                             </div>`
@@ -142,4 +142,11 @@ function filterItems() {
     }
 
 }
+
+function deletItem(name, i) {
+    coffeeItems.splice(i, 1)
+    console.log(name)
+    alert("are your sure that you want to delet this item ")
+    show(coffeeItems)
+};
 show(coffeeItems)

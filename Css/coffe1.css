@@ -70,15 +70,16 @@ button {
     color: white;
     padding: 14px 25px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
 }
 .click {
-    width: 260px;
-    background-color: rgba(255, 255, 255, 0.443);
-    color: rgb(0, 0, 0);
+    width: 251px;
+    background-color: #f44336;
+    color: white;
     cursor: pointer;
-    padding: 5px 10px;
+    margin-right: 5px;
+    padding: 10px 5px 5px 5px;
+ 
 }
 .menu-container {
     width: 50%;
@@ -99,4 +100,15 @@ a:visited {
 a:hover,
 a:active {
     background-color: red;
+}
+
+button:hover,
+button:active {
+    background-color: red;
+}
+
+#myInput{
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
 }
