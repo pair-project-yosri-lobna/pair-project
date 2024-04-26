@@ -123,14 +123,14 @@ $(".fa-trash").click(function () {
 });
 
 
-var removeProduct = function (id) {
+/**var removeProduct = function (id) {
 
     filter(this.items, function (element) {
         return element.id !== id
     })
 
 
-}
+}*/
 
 var removeProductById = function (id) {
 
